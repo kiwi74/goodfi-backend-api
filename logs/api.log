@@ -1,0 +1,822 @@
+2025-11-23 18:48:12 [BlockchainService] INFO: Initializing blockchain service...
+2025-11-23 18:48:12 [BlockchainService] INFO: Platform wallet: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+2025-11-23 18:48:12 [BlockchainService] INFO: ✅ Blockchain service initialized
+2025-11-23 18:50:36 [AuthAPI] INFO: Registration attempt: chad@goodfi.nz, type: sme
+2025-11-23 18:50:38 [AuthAPI] WARN: Failed to create profile: Invalid API key
+2025-11-23 18:50:38 [AuthAPI] INFO: User registered successfully: chad@goodfi.nz
+2025-11-23 18:50:47 [AuthAPI] INFO: Login attempt: chad@goodfi.nz
+2025-11-23 18:50:47 [AuthAPI] INFO: Login successful: chad@goodfi.nz
+2025-11-23 18:55:04 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-23 18:56:00 [AuthAPI] INFO: Login attempt: chad@goodfi.nz
+2025-11-23 18:56:00 [AuthAPI] INFO: Login successful: chad@goodfi.nz
+2025-11-23 18:58:11 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-23 18:58:22 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-23 19:00:08 [AuthAPI] INFO: Login attempt: chad@goodfi.nz
+2025-11-23 19:00:09 [AuthAPI] INFO: Login successful: chad@goodfi.nz
+2025-11-23 19:00:39 [AssetsAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 creating invoice asset worth $50000
+2025-11-23 19:00:39 [AssetsAPI] ERROR: Asset creation failed: Database error: Invalid API key
+2025-11-23 19:06:13 [BlockchainService] INFO: Initializing blockchain service...
+2025-11-23 19:06:13 [BlockchainService] INFO: Platform wallet: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+2025-11-23 19:06:13 [BlockchainService] INFO: ✅ Blockchain service initialized
+2025-11-23 19:06:28 [AssetsAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 creating invoice asset worth $50000
+2025-11-23 19:06:29 [AssetsAPI] ERROR: Asset creation failed: Database error: Could not find the table 'public.assets' in the schema cache
+2025-11-23 19:10:11 [AssetsAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 creating invoice asset worth $50000
+2025-11-23 19:10:11 [AssetsAPI] INFO: Asset created in database: ID 1
+2025-11-23 19:10:11 [BlockchainService] INFO: Creating asset: type=invoice, value=50000
+2025-11-23 19:10:13 [BlockchainService] ERROR: Failed to create asset:
+2025-11-23 19:10:13 [AssetsAPI] ERROR: Blockchain failed for asset 1: Blockchain error: insufficient funds for intrinsic transaction cost [ See: https://links.ethers.org/v5-errors-INSUFFICIENT_FUNDS ] (error={"reason":"processing response error","code":"SERVER_ERROR","body":"{\"jsonrpc\":\"2.0\",\"id\":49,\"error\":{\"code\":-32000,\"message\":\"insufficient funds for gas * price + value: address 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 have 0 want 13835059217427040354201751682\"}}\n","error":{"code":-32000},"requestBody":"{\"method\":\"eth_estimateGas\",\"params\":[{\"type\":\"0x2\",\"maxFeePerGas\":\"0x59682f7e\",\"maxPriorityFeePerGas\":\"0x59682f00\",\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xd8372931dd317ffb74af0539323af8976732c989\",\"data\":\"0xf21cd04c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000ba43b7400d92401b6ba687fe506fa301eb84ddf5562c8c4ff5d0e72d06ae0ea08fd2b8bbe\"}],\"id\":49,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-amoy.g.alchemy.com/v2/jO12hNa2iKs0xkZhf_MpyZJElEI9aKn0"}, method="estimateGas", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","maxPriorityFeePerGas":{"type":"BigNumber","hex":"0x59682f00"},"maxFeePerGas":{"type":"BigNumber","hex":"0x59682f7e"},"to":"0xD8372931dD317fFB74aF0539323AF8976732C989","data":"0xf21cd04c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000ba43b7400d92401b6ba687fe506fa301eb84ddf5562c8c4ff5d0e72d06ae0ea08fd2b8bbe","type":2,"accessList":null}, code=INSUFFICIENT_FUNDS, version=providers/5.8.0)
+2025-11-24 08:43:19 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 08:44:56 [AuthAPI] INFO: Login attempt: chad@goodfi.nz
+2025-11-24 08:44:59 [AuthAPI] INFO: Login successful: chad@goodfi.nz
+2025-11-24 08:45:31 [AssetsAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 creating invoice asset worth $75000
+2025-11-24 08:45:31 [AssetsAPI] INFO: Asset created in database: ID 2
+2025-11-24 08:45:31 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=75000
+2025-11-24 08:45:32 [BlockchainService] INFO: [MOCK] Asset created: ID 8505
+2025-11-24 08:45:32 [AssetsAPI] INFO: Asset 2 tokenized: blockchain ID 8505
+2025-11-24 08:45:32 [BlockchainService] INFO: [MOCK] Oracle notified for asset 8505
+2025-11-24 08:47:32 [LoansAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 requesting loan: $60000 against asset 2
+2025-11-24 08:48:05 [LoansAPI] ERROR: Failed to list loans: Could not find a relationship between 'loans' and 'assets' in the schema cache
+2025-11-24 08:51:45 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 08:52:46 [LoansAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 requesting loan: $60000 against asset 2
+2025-11-24 08:52:47 [LoansAPI] ERROR: Loan request failed: Database error: Could not find the 'asset_id' column of 'loans' in the schema cache
+2025-11-24 08:54:37 [LoansAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 requesting loan: $60000 against asset 2
+2025-11-24 08:54:38 [LoansAPI] ERROR: Loan request failed: Database error: Could not find the 'asset_id' column of 'loans' in the schema cache
+2025-11-24 08:56:13 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 08:56:24 [LoansAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 requesting loan: $60000
+2025-11-24 08:56:25 [LoansAPI] ERROR: Loan request failed: Database error: new row for relation "loans" violates check constraint "loans_status_check"
+2025-11-24 08:58:57 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 08:59:08 [LoansAPI] INFO: User ed45153e-82f3-40e0-8a57-5f155bc78804 requesting loan: $60000
+2025-11-24 08:59:09 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=2, amount=60000
+2025-11-24 08:59:10 [BlockchainService] INFO: [MOCK] Loan requested: ID 1899
+2025-11-24 08:59:10 [LoansAPI] INFO: Loan 99354529-b87a-441f-9f5e-9c0d272b70de blockchain request completed (mock)
+2025-11-24 13:42:05 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 13:51:09 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 13:51:21 [AuthAPI] INFO: Registration attempt: test@goodfi.co.nz, type: undefined
+2025-11-24 13:51:23 [AuthAPI] WARN: Failed to create profile: Could not find the 'created_at' column of 'profiles' in the schema cache
+2025-11-24 13:51:23 [AuthAPI] INFO: User registered successfully: test@goodfi.co.nz
+2025-11-24 13:51:41 [AuthAPI] INFO: Login attempt: test@goodfi.co.nz
+2025-11-24 13:51:42 [AuthAPI] INFO: Login successful: test@goodfi.co.nz
+2025-11-24 13:52:40 [AuthAPI] INFO: Login attempt: test@goodfi.co.nz
+2025-11-24 13:52:41 [AuthAPI] INFO: Login successful: test@goodfi.co.nz
+2025-11-24 13:58:48 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 14:04:44 [AuthAPI] INFO: Login attempt: test@goodfi.co.nz
+2025-11-24 14:04:46 [AuthAPI] INFO: Login successful: test@goodfi.co.nz
+2025-11-24 14:05:18 [AuthAPI] INFO: Login attempt: test@goodfi.co.nz
+2025-11-24 14:05:19 [AuthAPI] INFO: Login successful: test@goodfi.co.nz
+2025-11-24 14:16:15 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 14:20:23 [AuthAPI] INFO: Registration attempt: testsme@goodfi.co.nz, type: undefined
+2025-11-24 14:20:27 [AuthAPI] WARN: Failed to create profile: duplicate key value violates unique constraint "profiles_pkey"
+2025-11-24 14:20:27 [AuthAPI] INFO: User registered successfully: testsme@goodfi.co.nz
+2025-11-24 14:20:37 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 14:20:38 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 14:21:11 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 14:21:13 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 14:22:31 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 14:22:32 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 14:24:14 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 14:24:15 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 15:04:26 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 15:04:27 [AuthAPI] ERROR: Login failed: Invalid login credentials
+2025-11-24 15:04:48 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 15:04:49 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 15:14:02 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $100000
+2025-11-24 15:14:03 [AssetsAPI] INFO: Asset created in database: ID 3
+2025-11-24 15:14:03 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=100000
+2025-11-24 15:14:04 [BlockchainService] INFO: [MOCK] Asset created: ID 1266
+2025-11-24 15:14:04 [AssetsAPI] INFO: Asset 3 tokenized: blockchain ID 1266
+2025-11-24 15:14:04 [BlockchainService] INFO: [MOCK] Oracle notified for asset 1266
+2025-11-24 16:04:54 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-24 16:08:43 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 16:08:44 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 16:10:39 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $75000
+2025-11-24 16:10:40 [AssetsAPI] INFO: Asset created in database: ID 4
+2025-11-24 16:10:40 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=75000
+2025-11-24 16:10:41 [BlockchainService] INFO: [MOCK] Asset created: ID 9506
+2025-11-24 16:10:41 [AssetsAPI] INFO: Asset 4 tokenized: blockchain ID 9506
+2025-11-24 16:10:41 [BlockchainService] INFO: [MOCK] Oracle notified for asset 9506
+2025-11-24 16:14:29 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $250000
+2025-11-24 16:14:30 [AssetsAPI] INFO: Asset created in database: ID 5
+2025-11-24 16:14:30 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=250000
+2025-11-24 16:14:31 [BlockchainService] INFO: [MOCK] Asset created: ID 7330
+2025-11-24 16:14:31 [AssetsAPI] INFO: Asset 5 tokenized: blockchain ID 7330
+2025-11-24 16:14:31 [BlockchainService] INFO: [MOCK] Oracle notified for asset 7330
+2025-11-24 16:21:27 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $70000
+2025-11-24 16:21:27 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=3, amount=70000
+2025-11-24 16:21:28 [BlockchainService] INFO: [MOCK] Loan requested: ID 742
+2025-11-24 16:21:28 [LoansAPI] INFO: Loan 7789fd8b-27db-4fb9-8eb7-7f2536255314 blockchain request completed (mock)
+2025-11-24 16:22:17 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $70000
+2025-11-24 16:22:18 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=3, amount=70000
+2025-11-24 16:22:19 [BlockchainService] INFO: [MOCK] Loan requested: ID 9289
+2025-11-24 16:22:19 [LoansAPI] INFO: Loan 2c984dc0-3399-4a6c-aef2-a823fbabf736 blockchain request completed (mock)
+2025-11-24 16:22:58 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $70000
+2025-11-24 16:22:58 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=3, amount=70000
+2025-11-24 16:22:59 [BlockchainService] INFO: [MOCK] Loan requested: ID 7577
+2025-11-24 16:22:59 [LoansAPI] INFO: Loan b2bf2393-f94a-42e0-a4e1-488e3a21ac31 blockchain request completed (mock)
+2025-11-24 16:37:04 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 16:37:05 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 17:37:46 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-24 18:09:02 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 18:09:04 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 18:09:56 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating deposit asset worth $5000
+2025-11-24 18:09:56 [AssetsAPI] INFO: Asset created in database: ID 6
+2025-11-24 18:09:56 [BlockchainService] INFO: [MOCK] Creating asset: type=deposit, value=5000
+2025-11-24 18:09:57 [BlockchainService] INFO: [MOCK] Asset created: ID 9198
+2025-11-24 18:09:57 [AssetsAPI] INFO: Asset 6 tokenized: blockchain ID 9198
+2025-11-24 18:09:57 [BlockchainService] INFO: [MOCK] Oracle notified for asset 9198
+2025-11-24 18:27:46 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: App redesign for customer@test.com
+2025-11-24 18:27:47 [EscrowAPI] INFO: Escrow created: 1728dc85-cd11-4839-b167-f0adca3f658b
+2025-11-24 18:36:56 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-24 18:36:57 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-24 18:43:05 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 18:43:06 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 18:44:42 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Build house for customer@test.com
+2025-11-24 18:44:43 [EscrowAPI] INFO: Escrow created: 6b1a4abf-9f2c-47ae-965c-570ef7f39039
+2025-11-24 18:45:01 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-24 18:45:01 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-24 19:03:04 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 19:03:05 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 19:04:09 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Build fence for customer@test.com
+2025-11-24 19:04:10 [EscrowAPI] INFO: Escrow created: 3002fcdf-b509-4c42-9c43-57327d8837a3
+2025-11-24 19:06:22 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Work stuff for customer@test.com
+2025-11-24 19:06:23 [EscrowAPI] INFO: Escrow created: c27e434e-f3a1-4936-a070-631b15ce144a
+2025-11-24 19:11:23 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Uniforms for customer@test.com
+2025-11-24 19:11:24 [EscrowAPI] INFO: Escrow created: c2f82049-015f-4c0e-bbac-a287f5afdbe2
+2025-11-24 19:13:11 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Pick apples for customer@test.com
+2025-11-24 19:13:12 [EscrowAPI] INFO: Escrow created: 86071c0a-dbba-435b-b4a1-c36af7c42de3
+2025-11-24 19:16:14 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Debug Test for debug@test.com
+2025-11-24 19:16:15 [EscrowAPI] INFO: Escrow created: 7a0ce701-cf01-463a-8d91-0fd77cfe106b
+2025-11-24 19:29:30 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Pick pears for customer@test.com
+2025-11-24 19:29:31 [EscrowAPI] INFO: Escrow created: 2ba06822-e698-4505-8d0c-70a63097a7ee
+2025-11-24 19:29:49 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-24 19:29:50 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-24 19:30:30 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 19:30:31 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 19:31:09 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Pick Grapes for customer@test.com
+2025-11-24 19:31:09 [EscrowAPI] INFO: Escrow created: bdc29f4c-a795-47b5-bd5a-b802c01f3e75
+2025-11-24 19:32:30 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Pick peas for customer@test.com
+2025-11-24 19:32:31 [EscrowAPI] INFO: Escrow created: 837416e1-e5d0-4b22-b9b6-d1e51034ac60
+2025-11-24 19:37:32 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Fix car for customer@test.com
+2025-11-24 19:37:32 [EscrowAPI] INFO: Escrow created: 8dc0f4b3-9aa0-4c51-b1aa-297240f83025
+2025-11-24 19:38:08 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: asdfasdf for customer@test.com
+2025-11-24 19:38:08 [EscrowAPI] INFO: Escrow created: c6330dc1-a59e-4285-9021-b9e93e58150f
+2025-11-24 19:46:09 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Picks beans for customer@test.com
+2025-11-24 19:46:10 [EscrowAPI] INFO: Escrow created: 7c6a64e5-4a6f-4e69-ab10-2274bc8364f6
+2025-11-24 19:52:15 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-24 19:52:16 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-24 19:52:49 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-24 19:52:50 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-24 19:53:20 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: Final test for customer@test.com
+2025-11-24 19:53:21 [EscrowAPI] INFO: Escrow created: 89578d6b-cab7-42e7-b9ec-677c1413dc1c
+2025-11-24 19:57:10 [EscrowAPI] INFO: Invite sent for escrow 89578d6b-cab7-42e7-b9ec-677c1413dc1c to customer@test.com
+2025-11-24 19:57:54 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-24 19:57:55 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 07:40:56 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 07:40:58 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 07:43:40 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 07:43:41 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 07:56:02 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TuesTest1 for customer@test.com
+2025-11-25 07:56:02 [EscrowAPI] INFO: Escrow created: 4af53d09-9678-47da-a48d-9e0c08647853
+2025-11-25 07:56:13 [EscrowAPI] INFO: Invite sent for escrow 4af53d09-9678-47da-a48d-9e0c08647853 to customer@test.com
+2025-11-25 07:57:07 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 07:57:07 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 07:58:28 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 07:58:29 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 08:02:13 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TuesTest2 for customer@test.com
+2025-11-25 08:02:14 [EscrowAPI] INFO: Escrow created: 792c0c10-689f-4944-b65d-1059440e1234
+2025-11-25 08:02:20 [EscrowAPI] INFO: Invite sent for escrow 792c0c10-689f-4944-b65d-1059440e1234 to customer@test.com
+2025-11-25 08:03:08 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 08:03:09 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 08:03:29 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 08:03:29 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 08:10:28 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 08:10:29 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 08:11:01 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TT3 for customer@test.com
+2025-11-25 08:11:02 [EscrowAPI] INFO: Escrow created: 0d9d2ec6-a0f9-4bad-9af5-bb4050de7daa
+2025-11-25 08:11:10 [EscrowAPI] INFO: Invite sent for escrow 0d9d2ec6-a0f9-4bad-9af5-bb4050de7daa to customer@test.com
+2025-11-25 08:12:40 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 08:12:41 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 08:13:38 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 08:13:38 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 08:14:33 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TT3 for customer@test.com
+2025-11-25 08:14:34 [EscrowAPI] INFO: Escrow created: e99d0260-abdd-4a84-ac0c-b897fc8261c1
+2025-11-25 08:14:40 [EscrowAPI] INFO: Invite sent for escrow e99d0260-abdd-4a84-ac0c-b897fc8261c1 to customer@test.com
+2025-11-25 08:27:17 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-25 08:27:40 [EscrowAPI] INFO: Fetching escrow by token: a9ad851d6f...
+2025-11-25 08:27:41 [EscrowAPI] INFO: Fetching pending invites for: testsme@goodfi.co.nz
+2025-11-25 08:27:41 [EscrowAPI] INFO: Found escrow: 89578d6b-cab7-42e7-b9ec-677c1413dc1c for token
+2025-11-25 08:27:41 [EscrowAPI] INFO: Found 0 pending invites for testsme@goodfi.co.nz
+2025-11-25 08:29:59 [EscrowAPI] INFO: Fetching escrow by token: a9ad851d6f...
+2025-11-25 08:30:00 [EscrowAPI] INFO: Found escrow: 89578d6b-cab7-42e7-b9ec-677c1413dc1c for token
+2025-11-25 08:30:18 [EscrowAPI] INFO: Fetching pending invites for: testsme@goodfi.co.nz
+2025-11-25 08:30:18 [EscrowAPI] INFO: Found 0 pending invites for testsme@goodfi.co.nz
+2025-11-25 08:32:27 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 08:32:27 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 08:33:14 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TT4 for customer@test.com
+2025-11-25 08:33:14 [EscrowAPI] INFO: Escrow created: 95970630-ebfe-437f-ac1e-3b15d6529efb
+2025-11-25 08:33:40 [EscrowAPI] INFO: Invite sent for escrow 95970630-ebfe-437f-ac1e-3b15d6529efb to customer@test.com
+2025-11-25 08:34:19 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 08:34:19 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 08:35:08 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 08:35:09 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 08:36:50 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 08:36:50 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 08:39:12 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 08:39:13 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 08:48:14 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 08:48:14 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 08:48:36 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 08:48:36 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 08:50:27 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 08:50:27 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 09:54:21 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-25 09:54:36 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 09:54:37 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 09:54:37 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 09:54:38 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 09:59:37 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 09:59:37 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:04:09 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:04:09 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:04:58 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:04:59 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:05:46 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:05:46 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:05:51 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:05:51 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:05:51 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:05:52 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:05:52 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:05:53 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:05:53 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:05:53 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:10:35 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 10:10:36 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 10:11:11 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TT5 for customer@test.com
+2025-11-25 10:11:12 [EscrowAPI] INFO: Escrow created: 54be50b8-aa02-44ce-b63a-5a0a9148faf8
+2025-11-25 10:11:15 [EscrowAPI] INFO: Invite sent for escrow 54be50b8-aa02-44ce-b63a-5a0a9148faf8 to customer@test.com
+2025-11-25 10:18:56 [EscrowAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 creating escrow: TT6 for customer@test.com
+2025-11-25 10:18:56 [EscrowAPI] INFO: Escrow created: 1043257d-80a9-4ebf-a49e-77c18cfed7ad
+2025-11-25 10:19:00 [EscrowAPI] INFO: Invite sent for escrow 1043257d-80a9-4ebf-a49e-77c18cfed7ad to customer@test.com
+2025-11-25 10:19:57 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 10:19:58 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 10:19:58 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:19:59 [EscrowAPI] INFO: Found 8 pending invites for customer@test.com
+2025-11-25 10:20:09 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:20:09 [EscrowAPI] INFO: Found 8 pending invites for customer@test.com
+2025-11-25 10:25:20 [EscrowAPI] INFO: Fetching escrow by token: 32a6eebebb...
+2025-11-25 10:25:22 [EscrowAPI] INFO: Found escrow: 1043257d-80a9-4ebf-a49e-77c18cfed7ad for token
+2025-11-25 10:25:27 [EscrowAPI] INFO: Escrow 1043257d-80a9-4ebf-a49e-77c18cfed7ad accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-25 10:25:29 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:25:29 [EscrowAPI] INFO: Found 7 pending invites for customer@test.com
+2025-11-25 10:25:38 [EscrowAPI] INFO: Fetching escrow by token: fe0bd62c67...
+2025-11-25 10:25:39 [EscrowAPI] INFO: Found escrow: 54be50b8-aa02-44ce-b63a-5a0a9148faf8 for token
+2025-11-25 10:25:44 [EscrowAPI] INFO: Escrow 54be50b8-aa02-44ce-b63a-5a0a9148faf8 accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-25 10:25:45 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:25:45 [EscrowAPI] INFO: Found 6 pending invites for customer@test.com
+2025-11-25 10:26:38 [EscrowAPI] INFO: Fetching escrow by token: 451b886084...
+2025-11-25 10:26:39 [EscrowAPI] INFO: Found escrow: 95970630-ebfe-437f-ac1e-3b15d6529efb for token
+2025-11-25 10:26:43 [EscrowAPI] INFO: Escrow 95970630-ebfe-437f-ac1e-3b15d6529efb accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-25 10:26:44 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:26:44 [EscrowAPI] INFO: Found 5 pending invites for customer@test.com
+2025-11-25 10:27:51 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:27:51 [EscrowAPI] INFO: Found 5 pending invites for customer@test.com
+2025-11-25 10:28:40 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 10:28:41 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 10:50:13 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 10:50:14 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 10:50:15 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:50:15 [EscrowAPI] INFO: Found 5 pending invites for customer@test.com
+2025-11-25 10:50:43 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:50:43 [EscrowAPI] INFO: Found 5 pending invites for customer@test.com
+2025-11-25 10:51:04 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:51:04 [EscrowAPI] INFO: Found 5 pending invites for customer@test.com
+2025-11-25 10:51:50 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 10:51:51 [EscrowAPI] INFO: Found 5 pending invites for customer@test.com
+2025-11-25 11:04:42 [EscrowAPI] INFO: Fetching escrow by token: 699e93d6c9...
+2025-11-25 11:04:43 [EscrowAPI] INFO: Found escrow: e99d0260-abdd-4a84-ac0c-b897fc8261c1 for token
+2025-11-25 11:04:54 [EscrowAPI] INFO: Escrow e99d0260-abdd-4a84-ac0c-b897fc8261c1 accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-25 11:04:55 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:04:55 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:06:21 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:06:22 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:06:59 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:07:00 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:12:21 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:12:22 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:12:30 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:12:30 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:13:05 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:13:05 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:13:21 [EscrowAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 depositing funds to escrow 1043257d-80a9-4ebf-a49e-77c18cfed7ad
+2025-11-25 11:13:21 [EscrowAPI] INFO: Funds deposited for escrow 1043257d-80a9-4ebf-a49e-77c18cfed7ad
+2025-11-25 11:14:29 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 11:14:30 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 11:20:25 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone d6b627fb-637d-40cd-830b-0eeb0d1cc815
+2025-11-25 11:20:26 [MilestonesAPI] INFO: Milestone d6b627fb-637d-40cd-830b-0eeb0d1cc815 submitted
+2025-11-25 11:20:52 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 11:20:53 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 11:20:53 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:20:53 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:21:10 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone d6b627fb-637d-40cd-830b-0eeb0d1cc815
+2025-11-25 11:21:11 [MilestonesAPI] INFO: Milestone d6b627fb-637d-40cd-830b-0eeb0d1cc815 approved and funds released
+2025-11-25 11:21:19 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:21:19 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:21:44 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 11:21:44 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 11:35:13 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-25 11:36:54 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone 38a1547b-22b7-4e53-b008-092e44aa064a
+2025-11-25 11:36:55 [MilestonesAPI] INFO: Milestone 38a1547b-22b7-4e53-b008-092e44aa064a submitted
+2025-11-25 11:37:08 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone cf963417-151f-4f9e-81ed-3d0a825150a7
+2025-11-25 11:37:09 [MilestonesAPI] INFO: Milestone cf963417-151f-4f9e-81ed-3d0a825150a7 submitted
+2025-11-25 11:37:55 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 11:37:56 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 11:37:56 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:37:56 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:38:10 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone 38a1547b-22b7-4e53-b008-092e44aa064a
+2025-11-25 11:38:11 [MilestonesAPI] INFO: Milestone 38a1547b-22b7-4e53-b008-092e44aa064a approved and funds released
+2025-11-25 11:38:33 [MilestonesAPI] INFO: Milestone cf963417-151f-4f9e-81ed-3d0a825150a7 rejected
+2025-11-25 11:38:41 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:38:41 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:38:54 [EscrowAPI] INFO: Fetching escrow by token: a9ad851d6f...
+2025-11-25 11:38:54 [EscrowAPI] INFO: Found escrow: 89578d6b-cab7-42e7-b9ec-677c1413dc1c for token
+2025-11-25 11:39:00 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:39:00 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:39:19 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 11:39:19 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 11:40:07 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone cf963417-151f-4f9e-81ed-3d0a825150a7
+2025-11-25 11:40:08 [MilestonesAPI] INFO: Milestone cf963417-151f-4f9e-81ed-3d0a825150a7 submitted
+2025-11-25 11:40:30 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 11:40:30 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 11:40:30 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:40:31 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:40:41 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone cf963417-151f-4f9e-81ed-3d0a825150a7
+2025-11-25 11:40:41 [MilestonesAPI] INFO: Milestone cf963417-151f-4f9e-81ed-3d0a825150a7 approved and funds released
+2025-11-25 11:40:47 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:40:47 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:41:04 [EscrowAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 depositing funds to escrow 54be50b8-aa02-44ce-b63a-5a0a9148faf8
+2025-11-25 11:41:05 [EscrowAPI] INFO: Funds deposited for escrow 54be50b8-aa02-44ce-b63a-5a0a9148faf8
+2025-11-25 11:41:20 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:41:20 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 11:54:17 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 11:54:17 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:37:01 [EscrowAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 depositing funds to escrow 95970630-ebfe-437f-ac1e-3b15d6529efb
+2025-11-25 12:37:02 [EscrowAPI] INFO: Funds deposited for escrow 95970630-ebfe-437f-ac1e-3b15d6529efb
+2025-11-25 12:37:11 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:37:12 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:37:29 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 12:37:30 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 12:38:42 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone 1eb73e36-97ac-408b-b36d-87f562961c79
+2025-11-25 12:38:43 [MilestonesAPI] INFO: Milestone 1eb73e36-97ac-408b-b36d-87f562961c79 submitted
+2025-11-25 12:39:04 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone e0feb46a-c878-4ae3-b157-21995cf23737
+2025-11-25 12:39:04 [MilestonesAPI] INFO: Milestone e0feb46a-c878-4ae3-b157-21995cf23737 submitted
+2025-11-25 12:39:19 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone ff4f5375-a3e5-46f2-a9c1-9c11eff9e9fb
+2025-11-25 12:39:20 [MilestonesAPI] INFO: Milestone ff4f5375-a3e5-46f2-a9c1-9c11eff9e9fb submitted
+2025-11-25 12:39:42 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 12:39:43 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 12:39:43 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:39:43 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:40:52 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:40:52 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:41:02 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:41:02 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:45:11 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:45:11 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:49:22 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 12:49:23 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 12:50:19 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone 30e4cc57-e381-4193-a73a-184156513a10
+2025-11-25 12:50:19 [MilestonesAPI] INFO: Milestone 30e4cc57-e381-4193-a73a-184156513a10 submitted
+2025-11-25 12:50:28 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone ef9965cc-f141-442b-87ae-27e5924962e6
+2025-11-25 12:50:29 [MilestonesAPI] INFO: Milestone ef9965cc-f141-442b-87ae-27e5924962e6 submitted
+2025-11-25 12:50:36 [MilestonesAPI] INFO: SME 0cd4dcb6-c750-43c7-b465-73629e968b11 submitting milestone afea03da-4cb2-4817-b630-6d7a07b2d56f
+2025-11-25 12:50:37 [MilestonesAPI] INFO: Milestone afea03da-4cb2-4817-b630-6d7a07b2d56f submitted
+2025-11-25 12:50:54 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 12:50:55 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 12:50:55 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:50:55 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:51:09 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone 30e4cc57-e381-4193-a73a-184156513a10
+2025-11-25 12:51:10 [MilestonesAPI] INFO: Milestone 30e4cc57-e381-4193-a73a-184156513a10 approved and funds released
+2025-11-25 12:51:12 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone ef9965cc-f141-442b-87ae-27e5924962e6
+2025-11-25 12:51:12 [MilestonesAPI] INFO: Milestone ef9965cc-f141-442b-87ae-27e5924962e6 approved and funds released
+2025-11-25 12:51:14 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone afea03da-4cb2-4817-b630-6d7a07b2d56f
+2025-11-25 12:51:15 [MilestonesAPI] INFO: Milestone afea03da-4cb2-4817-b630-6d7a07b2d56f approved and funds released
+2025-11-25 12:51:18 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:51:18 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:51:43 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone 1eb73e36-97ac-408b-b36d-87f562961c79
+2025-11-25 12:51:43 [MilestonesAPI] INFO: Milestone 1eb73e36-97ac-408b-b36d-87f562961c79 approved and funds released
+2025-11-25 12:51:47 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone e0feb46a-c878-4ae3-b157-21995cf23737
+2025-11-25 12:51:47 [MilestonesAPI] INFO: Milestone e0feb46a-c878-4ae3-b157-21995cf23737 approved and funds released
+2025-11-25 12:51:49 [MilestonesAPI] INFO: Customer 63759e92-a9cc-4605-a1f9-ff754e127358 approving milestone ff4f5375-a3e5-46f2-a9c1-9c11eff9e9fb
+2025-11-25 12:51:50 [MilestonesAPI] INFO: Milestone ff4f5375-a3e5-46f2-a9c1-9c11eff9e9fb approved and funds released
+2025-11-25 12:51:54 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:51:54 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:52:04 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 12:52:04 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 12:52:19 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 12:52:20 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 13:26:11 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 13:26:12 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 13:26:12 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 13:26:12 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 13:41:24 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 13:41:24 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-25 13:43:00 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 13:43:01 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 14:33:32 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $175000
+2025-11-25 14:33:32 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=5, amount=175000
+2025-11-25 14:33:33 [BlockchainService] INFO: [MOCK] Loan requested: ID 8398
+2025-11-25 14:33:33 [LoansAPI] INFO: Loan 373dd866-2c7d-407d-9496-75157859176b blockchain request completed (mock)
+2025-11-25 14:43:16 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-25 14:43:38 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-25 14:43:39 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-25 15:25:43 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-25 15:25:44 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-25 15:25:44 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-25 15:25:45 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-26 07:06:38 [AuthAPI] INFO: Login attempt: testsme@gooofi.co.nz
+2025-11-26 07:06:39 [AuthAPI] ERROR: Login failed: Invalid login credentials
+2025-11-26 07:07:24 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 07:07:25 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 08:07:44 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-26 08:08:38 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 08:08:39 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 09:08:44 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-26 09:41:12 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 09:41:14 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 09:41:15 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 09:41:15 [EscrowAPI] INFO: Found 4 pending invites for customer@test.com
+2025-11-26 09:42:03 [EscrowAPI] INFO: Fetching escrow by token: f10a9e4f91...
+2025-11-26 09:42:03 [EscrowAPI] INFO: Found escrow: 0d9d2ec6-a0f9-4bad-9af5-bb4050de7daa for token
+2025-11-26 09:42:08 [EscrowAPI] INFO: Escrow 0d9d2ec6-a0f9-4bad-9af5-bb4050de7daa accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-26 09:42:09 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 09:42:09 [EscrowAPI] INFO: Found 3 pending invites for customer@test.com
+2025-11-26 09:42:16 [EscrowAPI] INFO: Fetching escrow by token: 3030083a39...
+2025-11-26 09:42:17 [EscrowAPI] INFO: Found escrow: 792c0c10-689f-4944-b65d-1059440e1234 for token
+2025-11-26 09:42:19 [EscrowAPI] INFO: Escrow 792c0c10-689f-4944-b65d-1059440e1234 accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-26 09:42:20 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 09:42:20 [EscrowAPI] INFO: Found 2 pending invites for customer@test.com
+2025-11-26 09:42:26 [EscrowAPI] INFO: Fetching escrow by token: 2c00de1342...
+2025-11-26 09:42:26 [EscrowAPI] INFO: Found escrow: 4af53d09-9678-47da-a48d-9e0c08647853 for token
+2025-11-26 09:42:28 [EscrowAPI] INFO: Escrow 4af53d09-9678-47da-a48d-9e0c08647853 accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-26 09:42:29 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 09:42:29 [EscrowAPI] INFO: Found 1 pending invites for customer@test.com
+2025-11-26 09:42:32 [EscrowAPI] INFO: Fetching escrow by token: a9ad851d6f...
+2025-11-26 09:42:32 [EscrowAPI] INFO: Found escrow: 89578d6b-cab7-42e7-b9ec-677c1413dc1c for token
+2025-11-26 09:42:34 [EscrowAPI] INFO: Escrow 89578d6b-cab7-42e7-b9ec-677c1413dc1c accepted by customer 63759e92-a9cc-4605-a1f9-ff754e127358
+2025-11-26 09:42:35 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 09:42:35 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 10:16:41 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-26 10:38:32 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 10:38:32 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 10:41:02 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 10:41:04 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 10:44:36 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 10:44:36 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 10:46:07 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 10:46:08 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 10:49:14 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 10:49:15 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 10:49:16 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 10:49:16 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 10:49:23 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 10:49:23 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 10:49:55 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 10:49:55 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 10:50:08 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 10:50:08 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 10:52:12 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 10:52:13 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 11:06:52 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 11:06:52 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 11:06:58 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 11:06:59 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 11:06:59 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 11:07:00 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 11:12:25 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 11:12:26 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 11:13:35 [EscrowAPI] INFO: Fetching pending invites for: testsme@goodfi.co.nz
+2025-11-26 11:13:35 [EscrowAPI] INFO: Found 0 pending invites for testsme@goodfi.co.nz
+2025-11-26 11:13:57 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 11:13:58 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 11:13:58 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 11:13:59 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 11:14:12 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 11:14:12 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 11:14:48 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 11:14:49 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 11:18:42 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 11:18:43 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-26 12:07:15 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 12:07:16 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 12:07:19 [AuthAPI] INFO: Login attempt: customer@test.com
+2025-11-26 12:07:19 [AuthAPI] INFO: Login successful: customer@test.com
+2025-11-26 12:07:20 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:07:20 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 12:07:30 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:07:30 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 12:08:11 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:08:11 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 12:08:17 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:08:17 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 12:08:21 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:08:21 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 12:08:26 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:08:26 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 12:09:01 [EscrowAPI] INFO: Fetching pending invites for: customer@test.com
+2025-11-26 12:09:02 [EscrowAPI] INFO: Found 0 pending invites for customer@test.com
+2025-11-26 13:15:06 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-26 16:24:25 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-26 16:24:27 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 08:37:24 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 08:37:26 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 08:39:04 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating purchase_order asset worth $4500
+2025-11-27 08:39:04 [AssetsAPI] INFO: Asset created in database: ID 7
+2025-11-27 08:39:04 [BlockchainService] INFO: [MOCK] Creating asset: type=purchase_order, value=4500
+2025-11-27 08:39:05 [BlockchainService] INFO: [MOCK] Asset created: ID 7599
+2025-11-27 08:39:05 [AssetsAPI] INFO: Asset 7 tokenized: blockchain ID 7599
+2025-11-27 08:39:05 [BlockchainService] INFO: [MOCK] Oracle notified for asset 7599
+2025-11-27 08:43:58 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $69000
+2025-11-27 08:43:58 [AssetsAPI] INFO: Asset created in database: ID 8
+2025-11-27 08:43:58 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=69000
+2025-11-27 08:43:59 [BlockchainService] INFO: [MOCK] Asset created: ID 5872
+2025-11-27 08:43:59 [AssetsAPI] INFO: Asset 8 tokenized: blockchain ID 5872
+2025-11-27 08:43:59 [BlockchainService] INFO: [MOCK] Oracle notified for asset 5872
+2025-11-27 09:54:40 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-27 09:55:04 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 09:55:05 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 10:10:46 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating deposit asset worth $1000
+2025-11-27 10:10:47 [AssetsAPI] INFO: Asset created in database: ID 9
+2025-11-27 10:10:47 [BlockchainService] INFO: [MOCK] Creating asset: type=deposit, value=1000
+2025-11-27 10:10:48 [BlockchainService] INFO: [MOCK] Asset created: ID 6500
+2025-11-27 10:10:48 [AssetsAPI] INFO: Asset 9 tokenized: blockchain ID 6500
+2025-11-27 10:10:48 [BlockchainService] INFO: [MOCK] Oracle notified for asset 6500
+2025-11-27 11:47:14 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-27 11:48:05 [AuthAPI] INFO: Registration attempt: lender@goodfi.co.nz, type: lender
+2025-11-27 11:48:06 [AuthAPI] WARN: Failed to create profile: duplicate key value violates unique constraint "profiles_pkey"
+2025-11-27 11:48:06 [AuthAPI] INFO: User registered successfully: lender@goodfi.co.nz
+2025-11-27 11:49:17 [AuthAPI] INFO: Registration attempt: lender@goodfi.co.nz, type: lender
+2025-11-27 11:49:17 [AuthAPI] ERROR: Registration failed: Auth error: A user with this email address has already been registered
+2025-11-27 11:49:30 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-27 11:49:30 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-27 12:01:17 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-27 12:22:37 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 12:22:38 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 12:23:19 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $100
+2025-11-27 12:23:19 [AssetsAPI] INFO: Asset created in database: ID 10
+2025-11-27 12:23:19 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=100
+2025-11-27 12:23:20 [BlockchainService] INFO: [MOCK] Asset created: ID 8071
+2025-11-27 12:23:21 [AssetsAPI] INFO: Asset 10 tokenized: blockchain ID 8071
+2025-11-27 12:23:21 [BlockchainService] INFO: [MOCK] Oracle notified for asset 8071
+2025-11-27 13:04:22 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $700
+2025-11-27 13:04:22 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=9, amount=700
+2025-11-27 13:04:23 [BlockchainService] INFO: [MOCK] Loan requested: ID 2061
+2025-11-27 13:04:23 [LoansAPI] INFO: Loan 0b03c526-3e79-480e-99b1-cb337802dc4f blockchain request completed (mock)
+2025-11-27 15:08:54 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-27 15:09:14 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 15:09:16 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 15:10:23 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $700
+2025-11-27 15:10:23 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=9, amount=700
+2025-11-27 15:10:24 [BlockchainService] INFO: [MOCK] Loan requested: ID 4631
+2025-11-27 15:10:24 [LoansAPI] INFO: Loan c57361cf-139d-4d50-9379-b6bc55c246f5 blockchain request completed (mock)
+2025-11-27 15:14:08 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-27 15:14:09 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-27 15:25:20 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 15:25:20 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 15:27:20 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $6969
+2025-11-27 15:27:20 [AssetsAPI] INFO: Asset created in database: ID 11
+2025-11-27 15:27:20 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=6969
+2025-11-27 15:27:21 [BlockchainService] INFO: [MOCK] Asset created: ID 7779
+2025-11-27 15:27:21 [AssetsAPI] INFO: Asset 11 tokenized: blockchain ID 7779
+2025-11-27 15:27:21 [BlockchainService] INFO: [MOCK] Oracle notified for asset 7779
+2025-11-27 15:55:59 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $4878.3
+2025-11-27 15:55:59 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=11, amount=4878.3
+2025-11-27 15:56:00 [BlockchainService] INFO: [MOCK] Loan requested: ID 1663
+2025-11-27 15:56:00 [LoansAPI] INFO: Loan d98ef05a-da1e-4db9-9497-b1ae92ed22b4 blockchain request completed (mock)
+2025-11-27 16:58:58 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-27 16:59:18 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 16:59:19 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 16:59:57 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-27 16:59:57 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-27 17:00:24 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 17:00:25 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 17:01:17 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating purchase_order asset worth $999
+2025-11-27 17:01:18 [AssetsAPI] INFO: Asset created in database: ID 12
+2025-11-27 17:01:18 [BlockchainService] INFO: [MOCK] Creating asset: type=purchase_order, value=999
+2025-11-27 17:01:19 [BlockchainService] INFO: [MOCK] Asset created: ID 4878
+2025-11-27 17:01:19 [AssetsAPI] INFO: Asset 12 tokenized: blockchain ID 4878
+2025-11-27 17:01:19 [BlockchainService] INFO: [MOCK] Oracle notified for asset 4878
+2025-11-27 17:08:20 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating purchase_order asset worth $1000
+2025-11-27 17:08:20 [AssetsAPI] INFO: Asset created in database: ID 13
+2025-11-27 17:08:20 [BlockchainService] INFO: [MOCK] Creating asset: type=purchase_order, value=1000
+2025-11-27 17:08:21 [BlockchainService] INFO: [MOCK] Asset created: ID 1147
+2025-11-27 17:08:21 [AssetsAPI] INFO: Asset 13 tokenized: blockchain ID 1147
+2025-11-27 17:08:21 [BlockchainService] INFO: [MOCK] Oracle notified for asset 1147
+2025-11-27 17:09:00 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating purchase_order asset worth $5000
+2025-11-27 17:09:00 [AssetsAPI] INFO: Asset created in database: ID 14
+2025-11-27 17:09:00 [BlockchainService] INFO: [MOCK] Creating asset: type=purchase_order, value=5000
+2025-11-27 17:09:01 [BlockchainService] INFO: [MOCK] Asset created: ID 737
+2025-11-27 17:09:01 [AssetsAPI] INFO: Asset 14 tokenized: blockchain ID 737
+2025-11-27 17:09:01 [BlockchainService] INFO: [MOCK] Oracle notified for asset 737
+2025-11-27 17:11:34 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $3500
+2025-11-27 17:11:35 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=14, amount=3500
+2025-11-27 17:11:36 [BlockchainService] INFO: [MOCK] Loan requested: ID 8867
+2025-11-27 17:11:36 [LoansAPI] INFO: Loan 0236e2b3-20a5-4981-9ef3-b265b39cb20d blockchain request completed (mock)
+2025-11-27 17:12:27 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-27 17:12:28 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-27 17:29:35 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 17:29:36 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-27 17:30:14 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating purchase_order asset worth $5500
+2025-11-27 17:30:15 [AssetsAPI] INFO: Asset created in database: ID 15
+2025-11-27 17:30:15 [BlockchainService] INFO: [MOCK] Creating asset: type=purchase_order, value=5500
+2025-11-27 17:30:16 [BlockchainService] INFO: [MOCK] Asset created: ID 6144
+2025-11-27 17:30:16 [AssetsAPI] INFO: Asset 15 tokenized: blockchain ID 6144
+2025-11-27 17:30:16 [BlockchainService] INFO: [MOCK] Oracle notified for asset 6144
+2025-11-27 17:30:59 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $3850
+2025-11-27 17:30:59 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=15, amount=3850
+2025-11-27 17:31:00 [BlockchainService] INFO: [MOCK] Loan requested: ID 3434
+2025-11-27 17:31:00 [LoansAPI] INFO: Loan d5c85381-2c37-4a3b-aa0f-4d897a0b0f5a blockchain request completed (mock)
+2025-11-27 17:31:38 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-27 17:31:38 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-27 17:37:44 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-27 17:37:45 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-28 08:21:20 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-28 08:21:22 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-28 08:28:09 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-28 08:28:11 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-28 08:29:52 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:29:52 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:30:07 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:30:07 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:30:17 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:30:17 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:02 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:34:02 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:24 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:34:24 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:42 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:34:42 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:53 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:34:53 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:46:27 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:46:27 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:47:15 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $undefined
+2025-11-28 08:47:15 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:59:15 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 08:59:41 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $48300 for 3 months
+2025-11-28 08:59:42 [LoansAPI] ERROR: Database error creating loan: null value in column "amount" of relation "loans" violates not-null constraint
+2025-11-28 08:59:42 [LoansAPI] ERROR: Loan request failed: Database error: null value in column "amount" of relation "loans" violates not-null constraint
+2025-11-28 09:01:27 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 09:02:45 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 09:03:03 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $48300 for 3 months
+2025-11-28 09:03:04 [LoansAPI] INFO: Loan 1352af56-1e1e-40a0-b593-1fd7014a78ab created successfully in database
+2025-11-28 09:03:04 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=8, amount=48300
+2025-11-28 09:03:05 [BlockchainService] INFO: [MOCK] Loan requested: ID 5668
+2025-11-28 09:03:05 [LoansAPI] INFO: Loan 1352af56-1e1e-40a0-b593-1fd7014a78ab blockchain request completed (mock)
+2025-11-28 09:09:28 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 11:39:02 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 11:39:16 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-28 11:39:37 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-28 11:39:38 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-28 11:41:56 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-28 11:41:57 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-28 11:48:13 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 12:32:04 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-28 12:32:05 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-28 12:33:19 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-28 12:33:20 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-28 12:46:37 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 12:47:49 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-28 12:47:50 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-28 12:48:43 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset worth $10000
+2025-11-28 12:48:43 [AssetsAPI] INFO: Asset created in database: ID 16
+2025-11-28 12:48:43 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=10000
+2025-11-28 12:48:44 [BlockchainService] INFO: [MOCK] Asset created: ID 9832
+2025-11-28 12:48:44 [AssetsAPI] INFO: Asset 16 tokenized: blockchain ID 9832
+2025-11-28 12:48:44 [BlockchainService] INFO: [MOCK] Oracle notified for asset 9832
+2025-11-28 13:00:11 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 13:01:41 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating deposit asset: "Forde Construction Ltd" worth $10000
+2025-11-28 13:01:41 [AssetsAPI] INFO: Asset created in database: ID 17, Name: "Forde Construction Ltd"
+2025-11-28 13:01:41 [BlockchainService] INFO: [MOCK] Creating asset: type=deposit, value=10000
+2025-11-28 13:01:42 [BlockchainService] INFO: [MOCK] Asset created: ID 5848
+2025-11-28 13:01:42 [AssetsAPI] INFO: Asset 17 tokenized: blockchain ID 5848
+2025-11-28 13:01:42 [BlockchainService] INFO: [MOCK] Oracle notified for asset 5848
+2025-11-28 13:04:32 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $7000 for 3 months
+2025-11-28 13:04:32 [LoansAPI] INFO: Request body:
+2025-11-28 13:04:33 [LoansAPI] INFO: Loan c08e48d5-f08e-49cc-9425-0456d9eb0e5e created successfully in database
+2025-11-28 13:04:33 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=17, amount=7000
+2025-11-28 13:04:34 [BlockchainService] INFO: [MOCK] Loan requested: ID 2591
+2025-11-28 13:04:34 [LoansAPI] INFO: Loan c08e48d5-f08e-49cc-9425-0456d9eb0e5e blockchain request completed (mock)
+2025-11-28 13:06:35 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-28 13:06:36 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-28 13:10:34 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 13:13:43 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-28 13:27:10 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-29 07:28:05 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-29 14:49:44 [AuthAPI] INFO: Login attempt: lender@test.com
+2025-11-29 14:49:47 [AuthAPI] INFO: Login successful: lender@test.com
+2025-11-29 17:01:59 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-29 17:02:00 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-30 10:01:59 [AuthAPI] INFO: Login attempt: testsem@goodfi.co.nz
+2025-11-30 10:02:00 [AuthAPI] ERROR: Login failed: Invalid login credentials
+2025-11-30 10:02:17 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 10:02:19 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 11:13:28 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-30 11:37:52 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-30 11:37:54 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-30 11:48:24 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 11:48:25 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 12:57:07 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-30 12:57:19 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 12:57:20 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 13:47:35 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-30 13:48:48 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 13:48:48 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 13:59:55 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 13:59:56 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 14:07:07 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset: "First Invoice" worth $10000
+2025-11-30 14:07:07 [AssetsAPI] INFO: Asset created in database: ID 18, Name: "First Invoice"
+2025-11-30 14:07:07 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=10000
+2025-11-30 14:07:08 [BlockchainService] INFO: [MOCK] Asset created: ID 8593
+2025-11-30 14:07:08 [AssetsAPI] INFO: Asset 18 tokenized: blockchain ID 8593
+2025-11-30 14:07:08 [BlockchainService] INFO: [MOCK] Oracle notified for asset 8593
+2025-11-30 14:35:46 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $7000 for 3 months
+2025-11-30 14:35:46 [LoansAPI] INFO: Request body:
+2025-11-30 14:35:46 [LoansAPI] INFO: Loan 4459a6ad-a69c-4398-9adb-6fb3fcab16f2 created successfully in database
+2025-11-30 14:35:46 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=18, amount=7000
+2025-11-30 14:35:47 [BlockchainService] INFO: [MOCK] Loan requested: ID 9595
+2025-11-30 14:35:47 [LoansAPI] INFO: Loan 4459a6ad-a69c-4398-9adb-6fb3fcab16f2 blockchain request completed (mock)
+2025-11-30 14:35:54 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan undefined
+2025-11-30 14:35:54 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 14:35:54 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 15:00:22 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-30 15:01:32 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 15:01:33 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 15:02:49 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 15:02:51 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 15:04:40 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-30 16:18:42 [AuthMiddleware] WARN: Invalid token attempt
+2025-11-30 16:19:05 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 16:19:06 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 16:32:05 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 4459a6ad-a69c-4398-9adb-6fb3fcab16f2
+2025-11-30 16:32:05 [LoansAPI] INFO: ✅ Loan 4459a6ad-a69c-4398-9adb-6fb3fcab16f2 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-11-30 16:32:54 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-30 16:32:55 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-30 16:33:02 [LoansAPI] INFO: User d6b09ae6-3c67-4e93-a35e-f1771e724277 fetching loan undefined
+2025-11-30 16:33:02 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:02 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:27 [LoansAPI] INFO: User d6b09ae6-3c67-4e93-a35e-f1771e724277 fetching loan undefined
+2025-11-30 16:33:28 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:28 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:12 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-11-30 16:37:13 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-11-30 16:37:18 [LoansAPI] INFO: User d6b09ae6-3c67-4e93-a35e-f1771e724277 fetching loan undefined
+2025-11-30 16:37:19 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:19 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:27 [LoansAPI] INFO: User d6b09ae6-3c67-4e93-a35e-f1771e724277 fetching loan undefined
+2025-11-30 16:37:27 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:27 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 17:13:31 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-30 17:14:26 [AuthAPI] INFO: Login attempt: lender@test.com
+2025-11-30 17:14:27 [AuthAPI] INFO: Login successful: lender@test.com
+2025-11-30 17:17:41 [BlockchainService] INFO: Blockchain service running in MOCK mode (no gas needed)
+2025-11-30 17:18:49 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-11-30 17:18:50 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-11-30 17:18:56 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 4459a6ad-a69c-4398-9adb-6fb3fcab16f2
+2025-11-30 17:18:57 [LoansAPI] INFO: ✅ Loan 4459a6ad-a69c-4398-9adb-6fb3fcab16f2 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-01 09:20:05 [AuthMiddleware] WARN: Invalid token attempt
+2025-12-01 09:20:23 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-12-01 09:20:24 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-12-01 09:21:14 [AuthAPI] INFO: Login attempt: lender@goodfi.co.nz
+2025-12-01 09:21:14 [AuthAPI] INFO: Login successful: lender@goodfi.co.nz
+2025-12-01 09:27:31 [AuthAPI] INFO: Login attempt: testsme@goodfi.co.nz
+2025-12-01 09:27:32 [AuthAPI] INFO: Login successful: testsme@goodfi.co.nz
+2025-12-01 09:29:32 [AssetsAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 creating invoice asset: "Japan Importers Inc" worth $25000
+2025-12-01 09:29:32 [AssetsAPI] INFO: Asset created in database: ID 19, Name: "Japan Importers Inc"
+2025-12-01 09:29:32 [BlockchainService] INFO: [MOCK] Creating asset: type=invoice, value=25000
+2025-12-01 09:29:33 [BlockchainService] INFO: [MOCK] Asset created: ID 5680
+2025-12-01 09:29:33 [AssetsAPI] INFO: Asset 19 tokenized: blockchain ID 5680
+2025-12-01 09:29:33 [BlockchainService] INFO: [MOCK] Oracle notified for asset 5680
+2025-12-01 09:30:36 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 requesting loan: $17500 for 3 months
+2025-12-01 09:30:36 [LoansAPI] INFO: Request body:
+2025-12-01 09:30:36 [LoansAPI] INFO: Loan 67a701cb-90b7-4a65-beab-7edead92cdde created successfully in database
+2025-12-01 09:30:36 [BlockchainService] INFO: [MOCK] Requesting loan: assetId=19, amount=17500
+2025-12-01 09:30:37 [BlockchainService] INFO: [MOCK] Loan requested: ID 3126
+2025-12-01 09:30:37 [LoansAPI] INFO: Loan 67a701cb-90b7-4a65-beab-7edead92cdde blockchain request completed (mock)
+2025-12-01 09:30:53 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan undefined
+2025-12-01 09:30:53 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:30:53 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:33:29 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
+2025-12-01 09:33:29 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-01 09:33:48 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
+2025-12-01 09:33:48 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-01 09:33:52 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan undefined
+2025-12-01 09:33:52 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:33:52 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:34:16 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
+2025-12-01 09:34:16 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-01 09:34:19 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan undefined
+2025-12-01 09:34:19 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:34:19 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:35:32 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
+2025-12-01 09:35:33 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-01 09:35:45 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
+2025-12-01 09:35:45 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11

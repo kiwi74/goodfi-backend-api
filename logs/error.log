@@ -1,0 +1,39 @@
+2025-11-23 19:00:39 [AssetsAPI] ERROR: Asset creation failed: Database error: Invalid API key
+2025-11-23 19:06:29 [AssetsAPI] ERROR: Asset creation failed: Database error: Could not find the table 'public.assets' in the schema cache
+2025-11-23 19:10:13 [BlockchainService] ERROR: Failed to create asset:
+2025-11-23 19:10:13 [AssetsAPI] ERROR: Blockchain failed for asset 1: Blockchain error: insufficient funds for intrinsic transaction cost [ See: https://links.ethers.org/v5-errors-INSUFFICIENT_FUNDS ] (error={"reason":"processing response error","code":"SERVER_ERROR","body":"{\"jsonrpc\":\"2.0\",\"id\":49,\"error\":{\"code\":-32000,\"message\":\"insufficient funds for gas * price + value: address 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 have 0 want 13835059217427040354201751682\"}}\n","error":{"code":-32000},"requestBody":"{\"method\":\"eth_estimateGas\",\"params\":[{\"type\":\"0x2\",\"maxFeePerGas\":\"0x59682f7e\",\"maxPriorityFeePerGas\":\"0x59682f00\",\"from\":\"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\"to\":\"0xd8372931dd317ffb74af0539323af8976732c989\",\"data\":\"0xf21cd04c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000ba43b7400d92401b6ba687fe506fa301eb84ddf5562c8c4ff5d0e72d06ae0ea08fd2b8bbe\"}],\"id\":49,\"jsonrpc\":\"2.0\"}","requestMethod":"POST","url":"https://polygon-amoy.g.alchemy.com/v2/jO12hNa2iKs0xkZhf_MpyZJElEI9aKn0"}, method="estimateGas", transaction={"from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","maxPriorityFeePerGas":{"type":"BigNumber","hex":"0x59682f00"},"maxFeePerGas":{"type":"BigNumber","hex":"0x59682f7e"},"to":"0xD8372931dD317fFB74aF0539323AF8976732C989","data":"0xf21cd04c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000ba43b7400d92401b6ba687fe506fa301eb84ddf5562c8c4ff5d0e72d06ae0ea08fd2b8bbe","type":2,"accessList":null}, code=INSUFFICIENT_FUNDS, version=providers/5.8.0)
+2025-11-24 08:48:05 [LoansAPI] ERROR: Failed to list loans: Could not find a relationship between 'loans' and 'assets' in the schema cache
+2025-11-24 08:52:47 [LoansAPI] ERROR: Loan request failed: Database error: Could not find the 'asset_id' column of 'loans' in the schema cache
+2025-11-24 08:54:38 [LoansAPI] ERROR: Loan request failed: Database error: Could not find the 'asset_id' column of 'loans' in the schema cache
+2025-11-24 08:56:25 [LoansAPI] ERROR: Loan request failed: Database error: new row for relation "loans" violates check constraint "loans_status_check"
+2025-11-24 15:04:27 [AuthAPI] ERROR: Login failed: Invalid login credentials
+2025-11-26 07:06:39 [AuthAPI] ERROR: Login failed: Invalid login credentials
+2025-11-27 11:49:17 [AuthAPI] ERROR: Registration failed: Auth error: A user with this email address has already been registered
+2025-11-28 08:29:52 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:30:07 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:30:17 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:02 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:24 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:42 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:34:53 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:46:27 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:47:15 [LoansAPI] ERROR: Loan request failed: Invalid time value
+2025-11-28 08:59:42 [LoansAPI] ERROR: Database error creating loan: null value in column "amount" of relation "loans" violates not-null constraint
+2025-11-28 08:59:42 [LoansAPI] ERROR: Loan request failed: Database error: null value in column "amount" of relation "loans" violates not-null constraint
+2025-11-30 10:02:00 [AuthAPI] ERROR: Login failed: Invalid login credentials
+2025-11-30 14:35:54 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 14:35:54 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:02 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:02 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:28 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:33:28 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:19 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:19 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:27 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-11-30 16:37:27 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:30:53 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:30:53 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:33:52 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:33:52 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:34:19 [LoansAPI] ERROR: Loan fetch error: invalid input syntax for type uuid: "undefined"
+2025-12-01 09:34:19 [LoansAPI] ERROR: Error fetching loan: invalid input syntax for type uuid: "undefined"
