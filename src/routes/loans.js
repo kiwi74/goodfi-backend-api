@@ -1,242 +1,177 @@
-/**
- * Loans API Routes - Updated for existing table structure
- */
-
 import express from 'express';
-import { authenticate } from '../middleware/auth.js';
-import { supabaseAdmin } from '../config/supabase.js';
-import { blockchainService } from '../services/blockchain.js';
-import { createLogger } from '../utils/logger.js';
+import { createClient } from '@supabase/supabase-js';
 
 const router = express.Router();
-const logger = createLogger('LoansAPI');
 
-// POST /api/loans/request
-router.post('/request', authenticate, async (req, res) => {
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
+);
+
+// Middleware to authenticate requests
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ error: 'Access token required' });
+  }
+
+  supabase.auth.getUser(token)
+    .then(({ data: { user }, error }) => {
+      if (error || !user) {
+        return res.status(403).json({ error: 'Invalid or expired token' });
+      }
+      req.user = user;
+      next();
+    })
+    .catch(err => {
+      console.error('Auth error:', err);
+      res.status(500).json({ error: 'Authentication failed' });
+    });
+};
+
+// POST /api/loans/request - Create a new loan request
+router.post('/request', authenticateToken, async (req, res) => {
   try {
-    const { asset_id, amount_requested, interest_rate, term_months, purpose, collateral_description } = req.body;
     const userId = req.user.id;
-
-    logger.info(`User ${userId} requesting loan: $${amount_requested} for ${term_months} months`);
-    logger.info(`Request body:`, { asset_id, amount_requested, interest_rate, term_months, purpose });
+    const { asset_id, amount, term_months, purpose } = req.body;
 
     // Validate required fields
-    if (!asset_id) {
-      return res.status(400).json({
-        success: false,
-        error: 'asset_id is required'
+    if (!asset_id || !amount || !term_months) {
+      return res.status(400).json({ 
+        error: 'Missing required fields',
+        required: ['asset_id', 'amount', 'term_months']
       });
     }
 
-    if (!amount_requested || amount_requested <= 0) {
-      return res.status(400).json({
-        success: false,
-        error: 'amount_requested must be a positive number'
-      });
+    // Verify the asset belongs to the user
+    const { data: asset, error: assetError } = await supabase
+      .from('assets')
+      .select('*')
+      .eq('id', asset_id)
+      .eq('user_id', userId)
+      .single();
+
+    if (assetError || !asset) {
+      return res.status(404).json({ error: 'Asset not found or does not belong to you' });
     }
 
-    if (!term_months || term_months <= 0) {
-      return res.status(400).json({
-        success: false,
-        error: 'term_months must be a positive number'
-      });
+    // Check if asset is verified
+    if (asset.verification_status !== 'verified') {
+      return res.status(400).json({ error: 'Asset must be verified before requesting a loan' });
     }
 
-    // Parse to ensure we have numbers
-    const parsedAmount = parseFloat(amount_requested);
-    const parsedInterestRate = parseFloat(interest_rate) || 10;
-    const parsedTermMonths = parseInt(term_months);
-    const parsedAssetId = parseInt(asset_id);
-
-    if (isNaN(parsedAmount) || isNaN(parsedTermMonths) || isNaN(parsedAssetId)) {
-      return res.status(400).json({
-        success: false,
-        error: 'Invalid numeric values provided'
-      });
-    }
-
-    if (!supabaseAdmin) {
-      return res.status(503).json({
-        success: false,
-        error: 'Service not configured'
-      });
-    }
-
-    // Calculate due date based on months
-    const dueDate = new Date();
-    dueDate.setMonth(dueDate.getMonth() + parsedTermMonths);
-
-    // Create loan in database with correct field names
-    const { data: loan, error: dbError } = await supabaseAdmin
+    // Create the loan
+    const { data: loan, error: loanError } = await supabase
       .from('loans')
       .insert({
         sme_id: userId,
-        asset_id: parsedAssetId,
-        // Old columns (NOT NULL - required)
-        amount: parsedAmount,                  // NOT NULL column
-        term: parsedTermMonths,                // NOT NULL column (same as term_months)
-        // New columns (nullable - optional but we set them anyway)
-        amount_requested: parsedAmount,        // Nullable column
-        term_months: parsedTermMonths,         // Nullable column
-        // Other fields
-        interest_rate: parsedInterestRate,
-        ltv: 80,
+        asset_id: asset_id,
+        amount_requested: amount,
+        amount: amount,
+        term_months: term_months,
+        term: term_months,
+        purpose: purpose || null,
         status: 'requested',
-        purpose: purpose || collateral_description || 'Asset financing',
-        collateral_description: collateral_description || `Asset #${parsedAssetId}`,
-        due_date: dueDate.toISOString(),
+        interest_rate: 10, // Default rate, can be adjusted
         created_at: new Date().toISOString()
       })
       .select()
       .single();
 
-    if (dbError) {
-      logger.error('Database error creating loan:', dbError);
-      throw new Error(`Database error: ${dbError.message}`);
+    if (loanError) {
+      console.error('Error creating loan:', loanError);
+      return res.status(500).json({ error: 'Failed to create loan request' });
     }
 
-    logger.info(`Loan ${loan.id} created successfully in database`);
-
-    // Request loan on blockchain (async, mock mode)
-    if (parsedAssetId) {
-      blockchainService.requestLoan({
-        assetId: parsedAssetId,
-        amount: parsedAmount,
-        interestRate: parsedInterestRate,
-        termDays: parsedTermMonths * 30, // Convert months to days for blockchain
-        borrowerEmail: req.user.email
-      })
-        .then(() => {
-          logger.info(`Loan ${loan.id} blockchain request completed (mock)`);
-        })
-        .catch(error => {
-          logger.error(`Blockchain loan request failed for loan ${loan.id}:`, error);
-        });
-    }
-
-    res.status(201).json({
+    res.json({
       success: true,
-      message: 'Loan request submitted successfully',
-      loan: {
-        id: loan.id,
-        amount_requested: loan.amount_requested,
-        interest_rate: loan.interest_rate,
-        term_months: loan.term_months,
-        asset_id: loan.asset_id,
-        status: loan.status,
-        due_date: loan.due_date,
-        created_at: loan.created_at
-      }
+      message: 'Loan request created successfully',
+      loan
     });
 
   } catch (error) {
-    logger.error('Loan request failed:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to request loan',
-      message: error.message
-    });
+    console.error('Error in loan request:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// GET /api/loans - List loans
-router.get('/', authenticate, async (req, res) => {
+// GET /api/loans/sme/my-loans - Get all loans for the authenticated SME (NEW ENDPOINT)
+router.get('/sme/my-loans', authenticateToken, async (req, res) => {
   try {
-    const userId = req.user.id;
-    const { role = 'borrower', status } = req.query;
+    const smeId = req.user.id;
 
-    if (!supabaseAdmin) {
-      return res.status(503).json({ success: false, error: 'Service not configured' });
-    }
-
-    let query = supabaseAdmin
+    // Fetch all loans for this SME
+    const { data: loans, error } = await supabase
       .from('loans')
       .select('*')
+      .eq('sme_id', smeId)
       .order('created_at', { ascending: false });
 
-    if (role === 'borrower') {
-      query = query.eq('sme_id', userId);
-    } else if (role === 'lender') {
-      query = query.or(`lender_id.eq.${userId},status.eq.requested`);
+    if (error) {
+      console.error('Error fetching SME loans:', error);
+      return res.status(500).json({ error: 'Failed to fetch loans' });
     }
 
-    if (status) query = query.eq('status', status);
+    // Fetch asset details for each loan
+    const loansWithAssets = await Promise.all(
+      loans.map(async (loan) => {
+        if (loan.asset_id) {
+          const { data: asset } = await supabase
+            .from('assets')
+            .select('*')
+            .eq('id', loan.asset_id)
+            .single();
+          return { ...loan, asset };
+        }
+        return loan;
+      })
+    );
 
-    const { data: loans, error } = await query;
-
-    if (error) throw new Error(error.message);
-
-    res.json({ success: true, loans: loans || [] });
-
+    res.json({ success: true, loans: loansWithAssets });
   } catch (error) {
-    logger.error('Failed to list loans:', error);
-    res.status(500).json({ success: false, error: 'Failed to fetch loans' });
+    console.error('Error fetching SME loans:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// GET /api/loans/:loanId - SME can view their own loan details
-router.get('/:loanId', authenticate, async (req, res) => {
+// GET /api/loans/:loanId - Get specific loan details (for SME viewing their own loan)
+router.get('/:loanId', authenticateToken, async (req, res) => {
   try {
     const { loanId } = req.params;
     const userId = req.user.id;
 
-    logger.info(`User ${userId} fetching loan ${loanId}`);
-
-    if (!supabaseAdmin) {
-      return res.status(503).json({
-        success: false,
-        error: 'Service not configured'
-      });
-    }
-
-    // Get the loan
-    const { data: loan, error: loanError } = await supabaseAdmin
+    // Fetch the loan
+    const { data: loan, error: loanError } = await supabase
       .from('loans')
       .select('*')
       .eq('id', loanId)
       .single();
 
-    if (loanError) {
-      logger.error('Loan fetch error:', loanError);
-      throw new Error(loanError.message);
+    if (loanError || !loan) {
+      console.error('Error fetching loan:', loanError);
+      return res.status(404).json({ error: 'Loan not found' });
     }
 
-    if (!loan) {
-      return res.status(404).json({
-        success: false,
-        error: 'Loan not found'
-      });
+    // Verify ownership
+    if (loan.sme_id !== userId) {
+      return res.status(403).json({ error: 'Access denied' });
     }
 
-    // Check if user owns this loan (or is the lender)
-    if (loan.sme_id !== userId && loan.lender_id !== userId) {
-      logger.warn(`Access denied: User ${userId} tried to access loan owned by ${loan.sme_id}`);
-      return res.status(403).json({
-        success: false,
-        error: 'Access denied - you can only view your own loans'
-      });
-    }
-
-    // Get asset details if asset_id exists
+    // Fetch asset details if exists
     let asset = null;
     if (loan.asset_id) {
-      console.log('🔍 Fetching asset for asset_id:', loan.asset_id);
-      const { data: assetData, error: assetError } = await supabaseAdmin
+      const { data: assetData } = await supabase
         .from('assets')
         .select('*')
         .eq('id', loan.asset_id)
         .single();
-      
-      if (assetError) {
-        console.error('❌ Asset fetch error:', assetError);
-      } else {
-        console.log('✅ Asset found:', assetData?.asset_name || assetData?.type);
-      }
       asset = assetData;
     }
 
     // Format response
-    const loanDetails = {
+    const formattedLoan = {
       loan_id: loan.id,
       status: loan.status,
       amount_requested: loan.amount_requested || loan.amount,
@@ -251,85 +186,14 @@ router.get('/:loanId', authenticate, async (req, res) => {
       reviewed_at: loan.reviewed_at,
       lender_notes: loan.lender_notes,
       approval_conditions: loan.approval_conditions,
-      due_date: loan.due_date,
-      sme_name: req.user.name || req.user.email
+      due_date: loan.due_date
     };
 
-    logger.info(`✅ Loan ${loanId} details fetched for user ${userId}`);
-
-    res.json({
-      success: true,
-      loan: loanDetails
-    });
+    res.json({ success: true, loan: formattedLoan });
 
   } catch (error) {
-    logger.error('Error fetching loan:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Failed to fetch loan details',
-      message: error.message
-    });
-  }
-});
-
-// POST /api/loans/:id/fund
-router.post('/:id/fund', authenticate, async (req, res) => {
-  try {
-    const { id } = req.params;
-    const lenderId = req.user.id;
-
-    logger.info(`Lender ${lenderId} funding loan ${id}`);
-
-    if (!supabaseAdmin) {
-      return res.status(503).json({ success: false, error: 'Service not configured' });
-    }
-
-    const { data: loan, error: loanError } = await supabaseAdmin
-      .from('loans')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (loanError || !loan) {
-      return res.status(404).json({ success: false, error: 'Loan not found' });
-    }
-
-    if (loan.status !== 'requested' && loan.status !== 'approved') {
-      return res.status(400).json({
-        success: false,
-        error: 'Loan is not available for funding',
-        current_status: loan.status
-      });
-    }
-
-    const { error: updateError } = await supabaseAdmin
-      .from('loans')
-      .update({
-        lender_id: lenderId,
-        status: 'funded',
-        funded_at: new Date().toISOString()
-      })
-      .eq('id', id);
-
-    if (updateError) throw new Error(updateError.message);
-
-    // Mock blockchain funding
-    blockchainService.fundLoan({
-      loanId: id,
-      lenderEmail: req.user.email
-    })
-      .then(() => logger.info(`Loan ${id} funded on blockchain (mock)`))
-      .catch(error => logger.error(`Blockchain funding failed for loan ${id}:`, error));
-
-    res.json({
-      success: true,
-      message: 'Loan funded successfully',
-      loan: { id: loan.id, status: 'funded', funded_at: new Date().toISOString() }
-    });
-
-  } catch (error) {
-    logger.error('Loan funding failed:', error);
-    res.status(500).json({ success: false, error: 'Failed to fund loan', message: error.message });
+    console.error('Error fetching loan details:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

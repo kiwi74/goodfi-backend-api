@@ -111,10 +111,10 @@ router.get('/all-loans', authenticateToken, async (req, res) => {
 
     // Then fetch related data for each loan
     const formattedLoans = await Promise.all(loans.map(async (loan) => {
-      // Fetch SME profile
+      // Fetch SME profile - FIXED: Added company_name
       const { data: sme } = await supabase
         .from('profiles')
-        .select('id, name, email, company_name, phone')
+        .select('id, name, phone, company_name')
         .eq('id', loan.sme_id)
         .single();
 
@@ -143,7 +143,7 @@ router.get('/all-loans', authenticateToken, async (req, res) => {
         verified_at: asset?.verified_at || null,
         sme_id: loan.sme_id,
         sme_name: sme?.name || null,
-        sme_email: sme?.email || null,
+        sme_company: sme?.company_name || null,  // FIXED: Added company_name
         sme_phone: sme?.phone || null,
         created_at: loan.created_at,
         reviewed_at: loan.reviewed_at,
@@ -191,10 +191,10 @@ router.get('/loan/:id', authenticateToken, async (req, res) => {
       return res.status(404).json({ error: 'Loan not found' });
     }
 
-    // Fetch SME profile
+    // Fetch SME profile - FIXED: Added company_name
     const { data: sme } = await supabase
       .from('profiles')
-      .select('id, name, email, phone')
+      .select('id, name, phone, company_name')
       .eq('id', loan.sme_id)
       .single();
 
@@ -209,7 +209,7 @@ router.get('/loan/:id', authenticateToken, async (req, res) => {
       asset = assetData;
     }
 
-    // Format the response
+    // Format the response - FIXED: Added sme_company
     const formattedLoan = {
       loan_id: loan.id,
       status: loan.status,
@@ -223,7 +223,8 @@ router.get('/loan/:id', authenticateToken, async (req, res) => {
       purpose: loan.purpose,
       created_at: loan.created_at,
       sme_name: sme?.name || null,
-      sme_email: sme?.email || null
+      sme_company: sme?.company_name || null,  // FIXED: Added company_name
+      sme_phone: sme?.phone || null
     };
 
     res.json({ success: true, loan: formattedLoan });
