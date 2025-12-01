@@ -114,7 +114,7 @@ router.get('/all-loans', authenticateToken, async (req, res) => {
       // Fetch SME profile
       const { data: sme } = await supabase
         .from('profiles')
-        .select('id, name, email, phone')
+        .select('id, name, email, company_name, phone')
         .eq('id', loan.sme_id)
         .single();
 
