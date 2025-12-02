@@ -57,10 +57,9 @@ router.post('/request', authenticateToken, async (req, res) => {
       return res.status(404).json({ error: 'Asset not found or does not belong to you' });
     }
 
-    // Check if asset is verified
-    if (asset.verification_status !== 'verified') {
-      return res.status(400).json({ error: 'Asset must be verified before requesting a loan' });
-    }
+    // FIXED: Removed verification check to restore create-asset → request-loan workflow
+    // Assets can now request loans immediately after creation
+    // Verification happens separately via the "Verify" button in SME Assets page
 
     // Create the loan
     const { data: loan, error: loanError } = await supabase

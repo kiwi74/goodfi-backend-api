@@ -820,3 +820,21 @@
 2025-12-01 09:35:33 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
 2025-12-01 09:35:45 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
 2025-12-01 09:35:45 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-01 10:34:01 [AuthMiddleware] WARN: Invalid token attempt
+2025-12-01 17:48:42 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 67a701cb-90b7-4a65-beab-7edead92cdde
+2025-12-01 17:48:43 [LoansAPI] INFO: ✅ Loan 67a701cb-90b7-4a65-beab-7edead92cdde details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 10:14:41 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan e7a34a41-bcb6-472b-a06c-5c131481e559
+2025-12-02 10:14:41 [LoansAPI] INFO: ✅ Loan e7a34a41-bcb6-472b-a06c-5c131481e559 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 10:44:16 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan e7a34a41-bcb6-472b-a06c-5c131481e559
+2025-12-02 10:44:16 [LoansAPI] INFO: ✅ Loan e7a34a41-bcb6-472b-a06c-5c131481e559 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 10:44:29 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 6c087d91-e72d-4a39-87fc-3015af9135ff
+2025-12-02 10:44:29 [LoansAPI] INFO: ✅ Loan 6c087d91-e72d-4a39-87fc-3015af9135ff details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 12:09:12 [AuthMiddleware] WARN: Invalid token attempt
+2025-12-02 12:56:11 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan e7a34a41-bcb6-472b-a06c-5c131481e559
+2025-12-02 12:56:12 [LoansAPI] INFO: ✅ Loan e7a34a41-bcb6-472b-a06c-5c131481e559 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 13:07:57 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan e7a34a41-bcb6-472b-a06c-5c131481e559
+2025-12-02 13:07:57 [LoansAPI] INFO: ✅ Loan e7a34a41-bcb6-472b-a06c-5c131481e559 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 13:08:39 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan 6c087d91-e72d-4a39-87fc-3015af9135ff
+2025-12-02 13:08:39 [LoansAPI] INFO: ✅ Loan 6c087d91-e72d-4a39-87fc-3015af9135ff details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
+2025-12-02 13:15:50 [LoansAPI] INFO: User 0cd4dcb6-c750-43c7-b465-73629e968b11 fetching loan e7a34a41-bcb6-472b-a06c-5c131481e559
+2025-12-02 13:15:51 [LoansAPI] INFO: ✅ Loan e7a34a41-bcb6-472b-a06c-5c131481e559 details fetched for user 0cd4dcb6-c750-43c7-b465-73629e968b11
