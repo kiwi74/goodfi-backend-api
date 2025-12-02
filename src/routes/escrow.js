@@ -257,12 +257,13 @@ router.get('/invites', authenticate, async (req, res) => {
       return res.status(503).json({ success: false, error: 'Service not configured' });
     }
 
+    // ✅ FIXED: Query for invites where customer_email matches AND customer hasn't accepted yet
     const { data: invites, error } = await supabaseAdmin
       .from('escrows')
-      .select('id, project_name, project_description, total_amount, status, invite_token, created_at')
+      .select('id, project_name, project_description, total_amount, status, invite_token, sme_email, created_at')
       .eq('customer_email', userEmail)
       .is('customer_id', null)
-      .eq('status', 'invited')
+      .in('status', ['draft', 'invited']) // ✅ Include both draft and invited status
       .order('created_at', { ascending: false });
 
     if (error) throw error;
@@ -349,6 +350,7 @@ router.get('/:id', authenticate, async (req, res) => {
 router.get('/', authenticate, async (req, res) => {
   try {
     const userId = req.user.id;
+    const userEmail = req.user.email; // ✅ Get user email
     const { role = 'sme', status } = req.query;
 
     if (!supabaseAdmin) {
@@ -363,7 +365,8 @@ router.get('/', authenticate, async (req, res) => {
     if (role === 'sme') {
       query = query.eq('sme_id', userId);
     } else if (role === 'customer') {
-      query = query.eq('customer_id', userId);
+      // ✅ FIXED: Query by customer_id OR customer_email
+      query = query.or(`customer_id.eq.${userId},customer_email.eq.${userEmail}`);
     }
 
     if (status) query = query.eq('status', status);
@@ -371,6 +374,8 @@ router.get('/', authenticate, async (req, res) => {
     const { data: escrows, error } = await query;
 
     if (error) throw new Error(error.message);
+
+    logger.info(`✅ Fetched ${escrows?.length || 0} escrows for role=${role}, user=${userId}`);
 
     res.json({
       success: true,
@@ -392,6 +397,9 @@ router.post('/accept/:token', authenticate, async (req, res) => {
   try {
     const { token } = req.params;
     const customerId = req.user.id;
+    const customerEmail = req.user.email;
+
+    logger.info(`🎫 Customer ${customerId} (${customerEmail}) accepting invite: ${token.substring(0, 10)}...`);
 
     if (!supabaseAdmin) {
       return res.status(503).json({ success: false, error: 'Service not configured' });
@@ -405,23 +413,40 @@ router.post('/accept/:token', authenticate, async (req, res) => {
       .single();
 
     if (fetchError || !escrow) {
+      logger.error('❌ Escrow not found for token');
       return res.status(404).json({ success: false, error: 'Invalid or expired invite' });
     }
 
-    if (escrow.status !== 'invited') {
-      return res.status(400).json({ success: false, error: 'Invite already accepted or expired' });
+    // ✅ Verify customer email matches (security check)
+    if (escrow.customer_email !== customerEmail) {
+      logger.error(`❌ Email mismatch: escrow=${escrow.customer_email}, user=${customerEmail}`);
+      return res.status(403).json({ 
+        success: false, 
+        error: 'This invitation was sent to a different email address' 
+      });
     }
 
-    // Update escrow with customer
-    const { error: updateError } = await supabaseAdmin
+    // Check if already accepted
+    if (escrow.status === 'pending_deposit' || escrow.status === 'active') {
+      return res.status(400).json({ success: false, error: 'Invite already accepted' });
+    }
+
+    // ✅ FIXED: Update escrow with customer_id and change status
+    const { data: updatedEscrow, error: updateError } = await supabaseAdmin
       .from('escrows')
       .update({
         customer_id: customerId,
-        status: 'pending_deposit'
+        status: 'pending_deposit', // ✅ Change from 'draft' to 'pending_deposit'
+        invite_accepted_at: new Date().toISOString()
       })
-      .eq('id', escrow.id);
+      .eq('id', escrow.id)
+      .select()
+      .single();
 
-    if (updateError) throw new Error(updateError.message);
+    if (updateError) {
+      logger.error('❌ Failed to update escrow:', updateError);
+      throw new Error(updateError.message);
+    }
 
     // Log activity
     await supabaseAdmin.from('escrow_activities').insert({
@@ -431,12 +456,12 @@ router.post('/accept/:token', authenticate, async (req, res) => {
       description: 'Customer accepted escrow invite'
     });
 
-    logger.info(`Escrow ${escrow.id} accepted by customer ${customerId}`);
+    logger.info(`✅ Escrow ${escrow.id} accepted by customer ${customerId}`);
 
     res.json({
       success: true,
-      message: 'Invite accepted successfully',
-      escrow_id: escrow.id
+      message: 'Invite accepted successfully! You can now make your deposit.',
+      escrow: updatedEscrow
     });
 
   } catch (error) {
