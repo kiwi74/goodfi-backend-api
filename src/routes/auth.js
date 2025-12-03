@@ -54,15 +54,34 @@ router.post('/register', async (req, res) => {
       logger.warn(`Failed to create profile: ${profileError.message}`);
     }
 
+    // ✅ FIXED: Sign in the user to get session tokens
+    const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (signInError) {
+      logger.error('Failed to sign in after registration:', signInError);
+      throw new Error('Registration succeeded but login failed');
+    }
+
     logger.info(`User registered successfully: ${email}`);
 
+    // ✅ FIXED: Return session tokens like the login endpoint does
     res.status(201).json({
       success: true,
       message: 'Registration successful',
       user: {
         id: authData.user.id,
         email: authData.user.email,
-        name: full_name || 'User'
+        name: full_name || 'User',
+        role: user_type || 'sme',
+        phone: phone || null
+      },
+      session: {
+        access_token: signInData.session.access_token,
+        refresh_token: signInData.session.refresh_token,
+        expires_at: signInData.session.expires_at
       }
     });
 
