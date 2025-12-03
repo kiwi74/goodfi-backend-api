@@ -260,7 +260,7 @@ router.get('/invites', authenticate, async (req, res) => {
     // ✅ FIXED: Query for invites where customer_email matches AND customer hasn't accepted yet
     const { data: invites, error } = await supabaseAdmin
       .from('escrows')
-      .select('id, project_name, project_description, total_amount, status, invite_token, sme_email, created_at')
+      .select('id, project_name, project_description, total_amount, status, invite_token, created_at')
       .eq('customer_email', userEmail)
       .is('customer_id', null)
       .in('status', ['draft', 'invited']) // ✅ Include both draft and invited status
